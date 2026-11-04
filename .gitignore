@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Pi local settings / sessions
+.pi/
+
+# Build output
+dist/
+*.tsbuildinfo
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+# Editor
+.idea/
+.vscode/
