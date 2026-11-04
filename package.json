@@ -1,11 +1,18 @@
 {
   "name": "pi-model-pin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Keeps the model you pick with /model across /new sessions in the same pi process, but starts at the default model in a new pi process.",
   "type": "module",
   "license": "MIT",
   "author": "DevMolchy <devmolchy@outlook.com>",
-  "keywords": ["pi-coding-agent", "pi-package", "extension", "model", "pin", "/new"],
+  "keywords": [
+    "pi-coding-agent",
+    "pi-package",
+    "extension",
+    "model",
+    "pin",
+    "/new"
+  ],
   "files": [
     "index.ts",
     "README.md",
@@ -28,7 +35,9 @@
     "typescript": "^5.9.0"
   },
   "pi": {
-    "extensions": ["./index.ts"]
+    "extensions": [
+      "./index.ts"
+    ]
   },
   "repository": {
     "type": "git",
