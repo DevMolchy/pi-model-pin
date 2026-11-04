@@ -86,4 +86,4 @@ CI (`npm ci && npm run typecheck && npm test`) runs on every push with Node 20, 
 
 ## License
 
-[MIT](LICENSE) © [Denis Molan](https://github.com/DevMolchy)
+[MIT](LICENSE) © [DevMolchy](https://github.com/DevMolchy)

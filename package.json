@@ -4,7 +4,7 @@
   "description": "Keeps the model you pick with /model across /new sessions in the same pi process, but starts at the default model in a new pi process.",
   "type": "module",
   "license": "MIT",
-  "author": "Denis Molan <devmolchy@outlook.com>",
+  "author": "DevMolchy <devmolchy@outlook.com>",
   "keywords": ["pi-coding-agent", "pi-package", "extension", "model", "pin", "/new"],
   "files": [
     "index.ts",
