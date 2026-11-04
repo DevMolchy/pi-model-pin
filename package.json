@@ -1,0 +1,41 @@
+{
+  "name": "pi-model-pin",
+  "version": "1.0.0",
+  "description": "Keeps the model you pick with /model across /new sessions in the same pi process, but starts at the default model in a new pi process.",
+  "type": "module",
+  "license": "MIT",
+  "author": "DevMolchy <devmolchy@outlook.com>",
+  "keywords": ["pi-coding-agent", "pi-package", "extension", "model", "pin", "/new"],
+  "files": [
+    "index.ts",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node test/harness.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "^1.5.0",
+    "jiti": "^2.7.0",
+    "typescript": "^5.9.0"
+  },
+  "pi": {
+    "extensions": ["./index.ts"]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevMolchy/pi-model-pin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DevMolchy/pi-model-pin/issues"
+  },
+  "homepage": "https://github.com/DevMolchy/pi-model-pin#readme"
+}

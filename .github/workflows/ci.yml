@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  # Weekly: catch pi releases between pushes (compat-latest radar).
+  schedule:
+    - cron: "0 6 * * 1"
+
+jobs:
+  # Deterministic gate: exact versions from package-lock.json.
+  # Must always pass — reproducible and blameable per commit.
+  test:
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        node-version: [20, 22, 24]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+
+  # Compatibility radar: floats to the newest pi release so API drift is
+  # caught the day it ships, not when someone happens to bump the dep.
+  # Most breakage surfaces as a type error in `tsc`. If this goes red after
+  # a pi release, that's a signal to fix the extension (types first).
+  # Set `continue-on-error: true` if you'd rather treat it as informational
+  # instead of a required check.
+  compat-latest:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm install -D @earendil-works/pi-coding-agent@latest --no-save
+      - run: npm run typecheck
+      - run: npm test
